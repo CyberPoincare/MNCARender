@@ -209,7 +209,7 @@ void CyberSpace::CreateParticleBuffers()
     BuffDesc.BindFlags         = BIND_SHADER_RESOURCE | BIND_UNORDERED_ACCESS;
     BuffDesc.Mode              = BUFFER_MODE_STRUCTURED;
     BuffDesc.ElementByteStride = sizeof(ParticleAttribs);
-    BuffDesc.uiSizeInBytes     = sizeof(ParticleAttribs) * m_NumParticles;
+    BuffDesc.Size     = sizeof(ParticleAttribs) * m_NumParticles;
 
     std::vector<ParticleAttribs> ParticleData(m_NumParticles);
 
@@ -263,7 +263,7 @@ void CyberSpace::CreateParticleBuffers()
     BuffDesc.BindFlags         = BIND_SHADER_RESOURCE;
     BuffDesc.Mode              = BUFFER_MODE_STRUCTURED;
     BuffDesc.ElementByteStride = sizeof(NeighbourAttribs);
-    BuffDesc.uiSizeInBytes     = sizeof(NeighbourAttribs) * NEIGHBOUR_HOOD_DEFINITION_NUM; //NEIGHBOUR_HOOD_NUM neighbour hoods
+    BuffDesc.Size     = sizeof(NeighbourAttribs) * NEIGHBOUR_HOOD_DEFINITION_NUM; //NEIGHBOUR_HOOD_NUM neighbour hoods
 
     std::vector<NeighbourAttribs> NeighbourData(NEIGHBOUR_HOOD_DEFINITION_NUM);
     for (int k = 0; k < NEIGHBOUR_HOOD_DEFINITION_NUM; k++)
@@ -300,7 +300,7 @@ void CyberSpace::CreateConsantBuffer()
     BuffDesc.Usage          = USAGE_DYNAMIC;
     BuffDesc.BindFlags      = BIND_UNIFORM_BUFFER;
     BuffDesc.CPUAccessFlags = CPU_ACCESS_WRITE;
-    BuffDesc.uiSizeInBytes  = sizeof(float4) * 3+16;
+    BuffDesc.Size  = sizeof(float4) * 3+16;
     m_pDevice->CreateBuffer(BuffDesc, nullptr, &m_Constants);
 }
 //-----------------------------------------------------------------------------

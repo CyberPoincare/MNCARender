@@ -56,11 +56,6 @@ function(add_app APP_NAME IDE_FOLDER SOURCE INCLUDE SHADERS ASSETS)
     source_group("src" FILES ${SOURCE} ${INCLUDE})
     source_group("assets" FILES ${ALL_ASSETS})	
 
-    target_sources(${APP_NAME} PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/readme.md")
-    set_source_files_properties(
-        "${CMAKE_CURRENT_SOURCE_DIR}/readme.md" PROPERTIES HEADER_FILE_ONLY TRUE
-    )
-
     if(PLATFORM_WIN32 OR PLATFORM_LINUX)
         # Copy assets to target folder
         add_custom_command(TARGET ${APP_NAME} POST_BUILD
