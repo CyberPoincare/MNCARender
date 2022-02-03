@@ -21,6 +21,16 @@ git submodule update --recursive
 
 It is also a good idea to re-run CMake and perform clean rebuild after getting the latest version.
 
+# How to
+
+On "Settings" panel:
+
+use "`Random All & Respawn`", "`Random Neighbour Def & Respawn`" and "`Random Neighbour Order & Respawn`" to generate new patterns.
+
+use "`Respawn`" to reinit state.
+
+push `Space` key to pause/resume.
+
 ---
 
 The tool source code is in `./CyberSpace/`. Since it is coded under DiligentEngine demo code framework, you can easily build and runing it as [DiligentEngine's Tutorials](https://github.com/DiligentGraphics/DiligentEngine#tutorials)
