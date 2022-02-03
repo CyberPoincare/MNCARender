@@ -2,18 +2,7 @@
 GPU-Accelerated [Multiple Neighborhood Cellular Automata (MNCA)](https://slackermanz.com/understanding-multiple-neighborhood-cellular-automata) Render Tool Based on DiligentEngine
 
 ---
-<img src="Screens/001.png" alt="screen" width="256"/>
-<img src="Screens/002.png" alt="screen" width="256"/>
-<img src="Screens/003.png" alt="screen" width="256"/>
-<img src="Screens/004.png" alt="screen" width="256"/>
-<img src="Screens/005.png" alt="screen" width="256"/>
-<img src="Screens/006.png" alt="screen" width="256"/>
-<img src="Screens/007.png" alt="screen" width="256"/>
-<img src="Screens/008.png" alt="screen" width="256"/>
-<img src="Screens/009.png" alt="screen" width="256"/>
-<img src="Screens/010.png" alt="screen" width="256"/>
-<img src="Screens/011.png" alt="screen" width="256"/>
-<img src="Screens/012.png" alt="screen" width="256"/>
+<img src="Screens/001.png" alt="screen" width="256"/><img src="Screens/002.png" alt="screen" width="256"/><img src="Screens/003.png" alt="screen" width="256"/><img src="Screens/004.png" alt="screen" width="256"/><img src="Screens/005.png" alt="screen" width="256"/><img src="Screens/006.png" alt="screen" width="256"/><img src="Screens/007.png" alt="screen" width="256"/><img src="Screens/008.png" alt="screen" width="256"/><img src="Screens/009.png" alt="screen" width="256"/><img src="Screens/010.png" alt="screen" width="256"/><img src="Screens/011.png" alt="screen" width="256"/><img src="Screens/012.png" alt="screen" width="256"/>
 
 # Cloning the Repository
 
