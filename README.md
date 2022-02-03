@@ -15,6 +15,23 @@ GPU-Accelerated [Multiple Neighborhood Cellular Automata (MNCA)](https://slacker
 <img src="Screens/011.png" alt="screen" width="256"/>
 <img src="Screens/012.png" alt="screen" width="256"/>
 
+# Cloning the Repository
+
+To get the repository and all submodules, use the following command:
+
+```
+git clone --recursive https://github.com/CyberPoincare/MNCARender.git
+```
+
+When updating existing repository, don't forget to update all submodules:
+
+```
+git pull
+git submodule update --recursive
+```
+
+It is also a good idea to re-run CMake and perform clean rebuild after getting the latest version.
+
 ---
 
 The DiligentEngine can be found at: https://github.com/DiligentGraphics/DiligentEngine
