@@ -4,10 +4,9 @@
 ///@file
 ///@brief Description: 
 ///
-///@author      XiaoP(TaoPeng, mailto:xiaopplus@gmail.com)
+///@author      CyberParticle
 ///@date        7/21/2021 19:55
 //
-// Copyright (C) 2021 Tao Peng. All Rights Reserved. 
 //
 /////////////////////////////////////////////////////////////////////////////// 
 //
