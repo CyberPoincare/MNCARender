@@ -1,0 +1,77 @@
+#include "structures.fxh"
+#include "text.fxh"
+
+//cbuffer Constants
+//{
+//    GlobalConstants g_Constants;
+//};
+
+struct PSInput 
+{ 
+    float4 Pos : SV_POSITION;
+    float2 uv : TEX_COORD;
+    float4 Life : LIFE;
+    float  Scale : SCALE;
+};
+
+struct PSOutput
+{
+    float4 Color : SV_TARGET;
+};
+
+//https : //www.shadertoy.com/view/XddSzH
+float UDFatLineSegment(in float2 coords, in float2 A, in float2 B, in float height)
+{
+    // calculate x and y axis of box
+    float2  xAxis = normalize(B - A);
+    float2  yAxis = float2(xAxis.y, -xAxis.x);
+    float width = length(B - A);
+
+    // make coords relative to A
+    coords -= A;
+
+    float2 relCoords;
+    relCoords.x = dot(coords, xAxis);
+    relCoords.y = dot(coords, yAxis);
+
+    // calculate closest point
+    float2 closestPoint;
+    closestPoint.x = clamp(relCoords.x, 0.0, width);
+    closestPoint.y = clamp(relCoords.y, -height * 0.5, height * 0.5);
+
+    return length(relCoords - closestPoint);
+}
+
+void main(in  PSInput  PSIn,
+          out PSOutput PSOut)
+{
+    //float r = length(PSIn.uv.xy - float2(0.5, 0.5)) * 2.0;
+    //if(r > 1.0)
+    //    discard;
+
+#if 0
+    float textSize = 0.05;
+    float2 print_pos = float2(0.5 / textSize - STRWIDTH(1.0), 0.5 / textSize - STRHEIGHT(0.5));
+    float2 suv       = float2(PSIn.uv.x, 1.0 - PSIn.uv.y) / textSize; //scaled uv
+    float  textPixel = print_integer(PSIn.NN.x, 0, suv, print_pos, NORMAL); 
+    //Shading stuff
+    float3 textCol = float3(1.0,1.0,1.0);
+    //textCol *= (1. - distance(fmod(suv, float2(1.0, 1.0)), float2(0.65, 0.65))) * 1.2;
+    textCol *= lerp(float3(0.0, 0.0, 0.0), float3(1, 1, 1), textPixel);
+
+    float lineWidth = 0.05;
+    float dist      = UDFatLineSegment(PSIn.uv.xy, float2(0.5, 0.5), float2(0.5 + PSIn.DIR.x, 0.5-PSIn.DIR.y), lineWidth);
+    //float  dist       = UDFatLineSegment(PSIn.uv.xy, float2(0,0), float2(0,0.5), lineWidth);
+    float AA_AMOUNT = 2.0 / g_Constants.f2WindowSize.x;
+    float k = 1.0 - smoothstep(0.0, AA_AMOUNT, dist);
+    float3 arrowColor = float3(k, k, 0);
+    //PSOut.Color  = float4(arrowColor, 1.0);
+
+    float intensity = sqrt(saturate(1.0 - r));
+    float3 Color = PSIn.Temp.rgb;
+    PSOut.Color      = float4(Color * intensity + arrowColor + textCol, sqrt(intensity));
+#else
+    //float  intensity = sqrt(saturate(1.0 - r));
+    PSOut.Color = float4(PSIn.Life.y, PSIn.Life.z, PSIn.Life.w, PSIn.Life.x);
+#endif
+}
